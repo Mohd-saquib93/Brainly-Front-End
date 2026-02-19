@@ -1,5 +1,4 @@
 import { CrossIcon } from "./icons/CrossIcon";
-import { Button } from "./Button";
 import { useRef, useState } from "react";
 import { BACKEND_URL } from "../Config";
 import axios from "axios";

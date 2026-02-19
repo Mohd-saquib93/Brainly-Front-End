@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { Brain, Sparkles, Zap, Shield, Palette, Wrench, Server, Sun, Moon, Youtube, Twitter, Link2, ArrowRight, CheckCircle2, Users, Bookmark, Globe } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
@@ -20,14 +21,19 @@ const steps = [
 
 
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: {
+      duration: 0.6,
+      delay: i * 0.1,
+      ease: "easeInOut"
+    },
   }),
 };
+
 
 export default function BrainlyLandingPage() {
   const navigate = useNavigate();
