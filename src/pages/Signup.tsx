@@ -35,6 +35,7 @@ export default function Signup() {
     setLoading(true);
     try {
       await axios.post(BACKEND_URL + "/api/v1/signup", { username, password });
+      alert("You have signed up!");
       navigate("/signin");
     } catch (err: any) {
       setError(err?.response?.data?.message || "Signup failed. Try again.");

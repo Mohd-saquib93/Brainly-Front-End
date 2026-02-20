@@ -1,12 +1,16 @@
 import { Brain } from "lucide-react";
 import { TwitterIcon } from "./icons/TwitterIcon";
 import { YoutubeIcon } from "./icons/YoutubeIcon";
+import { InstagramIcon } from "./icons/InstagramIcon";
+import { FacebookIcon } from "./icons/FacebookIcon";
 import { Sidebaritem } from "./Sidebaritem";
 import { LayoutGrid } from "lucide-react";
 
+export type ContentFilter = "all" | "twitter" | "youtube" | "instagram" | "facebook";
+
 interface SidebarProps {
-    activeFilter: "all" | "twitter" | "youtube";
-    onFilter: (filter: "all" | "twitter" | "youtube") => void;
+    activeFilter: ContentFilter;
+    onFilter: (filter: ContentFilter) => void;
     isDark?: boolean;
 }
 
@@ -52,6 +56,20 @@ export function Sidebar({ activeFilter, onFilter, isDark = true }: SidebarProps)
                     icon={<YoutubeIcon />}
                     onClick={() => onFilter("youtube")}
                     isActive={activeFilter === "youtube"}
+                    isDark={isDark}
+                />
+                <Sidebaritem
+                    text="Instagram"
+                    icon={<InstagramIcon />}
+                    onClick={() => onFilter("instagram")}
+                    isActive={activeFilter === "instagram"}
+                    isDark={isDark}
+                />
+                <Sidebaritem
+                    text="Facebook"
+                    icon={<FacebookIcon />}
+                    onClick={() => onFilter("facebook")}
+                    isActive={activeFilter === "facebook"}
                     isDark={isDark}
                 />
             </div>

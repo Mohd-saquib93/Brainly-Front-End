@@ -1,6 +1,6 @@
 import { CreateContentModal } from "../components/CreateContentModal"
 import { useEffect, useState } from "react"
-import { Sidebar } from "../components/Sidebar"
+import { Sidebar, type ContentFilter } from "../components/Sidebar"
 import { useContent } from "../hooks/useContent"
 import { Card } from "../components/Card"
 import { useNavigate } from "react-router-dom"
@@ -10,7 +10,7 @@ import { Plus, LogOut, Sun, Moon } from "lucide-react"
 export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const { contents, refresh } = useContent();
-  const [filter, setFilter] = useState<"all" | "twitter" | "youtube">("all");
+  const [filter, setFilter] = useState<ContentFilter>("all");
   const navigate = useNavigate();
   const { isDark, toggleTheme } = useTheme();
 
@@ -43,7 +43,7 @@ export function Dashboard() {
           : "bg-white/80 border-gray-200"
           }`}>
           <h1 className={`text-2xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
-            {filter === "all" ? "All Content" : filter === "twitter" ? "Twitter" : "Youtube"}
+            {filter === "all" ? "All Content" : filter === "twitter" ? "Twitter" : filter === "youtube" ? "Youtube" : filter === "instagram" ? "Instagram" : "Facebook"}
           </h1>
 
           <div className="flex items-center gap-3">

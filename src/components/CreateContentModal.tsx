@@ -5,7 +5,9 @@ import axios from "axios";
 
 enum ContentType {
     Youtube = "youtube",
-    Twitter = "twitter"
+    Twitter = "twitter",
+    Instagram = "instagram",
+    Facebook = "facebook"
 }
 
 interface CreateContentModalProps {
@@ -88,7 +90,7 @@ export function CreateContentModal({ open, onClose, isDark = true }: CreateConte
                             </label>
                             <input
                                 ref={linkRef}
-                                placeholder="Paste YouTube or Twitter link"
+                                placeholder="Paste YouTube, Twitter, Instagram or Facebook link"
                                 className={`w-full py-2.5 px-4 rounded-xl outline-none border transition-all ${isDark
                                     ? "bg-white/[0.05] border-white/10 text-white placeholder-gray-500 focus:border-teal-500/50"
                                     : "bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-400 focus:border-teal-400"
@@ -124,6 +126,28 @@ export function CreateContentModal({ open, onClose, isDark = true }: CreateConte
                                     }`}
                             >
                                 Twitter
+                            </button>
+                            <button
+                                onClick={() => setType(ContentType.Instagram)}
+                                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${type === ContentType.Instagram
+                                    ? "bg-teal-600 text-white"
+                                    : isDark
+                                        ? "bg-white/[0.05] text-gray-400 hover:bg-white/10"
+                                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                    }`}
+                            >
+                                Instagram
+                            </button>
+                            <button
+                                onClick={() => setType(ContentType.Facebook)}
+                                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${type === ContentType.Facebook
+                                    ? "bg-teal-600 text-white"
+                                    : isDark
+                                        ? "bg-white/[0.05] text-gray-400 hover:bg-white/10"
+                                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                    }`}
+                            >
+                                Facebook
                             </button>
                         </div>
                     </div>
