@@ -33,11 +33,16 @@ export default function Signup() {
 
     setError("");
     setLoading(true);
+    // @ts-ignore 
     try {
       await axios.post(BACKEND_URL + "/api/v1/signup", { username, password });
       alert("You have signed up!");
       navigate("/signin");
-    } catch (err: any) {
+
+    } 
+    
+    
+    catch (err: any)  {
       setError(err?.response?.data?.message || "Signup failed. Try again.");
     } finally {
       setLoading(false);
